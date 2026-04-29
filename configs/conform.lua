@@ -11,17 +11,11 @@ local options = {
 
   formatters = {
     black = {
-      prepend_args = { "--line-length=100", "--include-trailing-comma" },
+      prepend_args = { "--line-length=100" },
     },
-    isort = {
-      prepend_args = {
-        "--profile", "black",
-        "--line-length=100",
-        "--known-third-party=betamax,celery,dateutil,django,factory,freezegun,graphene_django,graphene_file_upload,graphql,ho,html2text,html5lib,httplib2,hypothesis,localflavor,lxml,magic,mock,newrelic,oauth2_provider,pandas,PIL,PyPDF2,pytest,pytz,rest_framework,six,stripe,twilio,unittest2,urbanairship",
-      },
-    },
+    isort = {},
     prettier = {
-      prepend_args = { "--single-quote", "--tab-width=4", "--print-width=88" },
+      -- prepend_args = { "--single-quote", "--tab-width=4", "--print-width=88" },
     },
     ["clang-format"] = {
       prepend_args = { "--style=Google" },

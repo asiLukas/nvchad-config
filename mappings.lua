@@ -59,9 +59,12 @@ end, { desc = "Lazydocker" })
 -- auto close on exit
 vim.api.nvim_create_autocmd("TermClose", {
   desc = "Close terminal buffer on process exit",
-  callback = function()
+  callback = function(args)
     if vim.v.event.status == 0 then
-      vim.api.nvim_buf_delete(0, { force = true })
+      -- Check if the buffer still exists before trying to delete it
+      if vim.api.nvim_buf_is_valid(args.buf) then
+        vim.api.nvim_buf_delete(args.buf, { force = true })
+      end
     end
   end,
 })
